@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, useRoutes } from "react-router-dom";
+import HomeLayout from "./components/Layouts/HomeLayout";
+import Homepage from "./screens/Homepage"
+import { ProtectedLayout } from "./components/Layouts/ProtectedLayout";
+import PupilLayout from "./components/Layouts/Pupil/PupilLayout";
+import TeacherLayout from "./components/Layouts/Teacher/TeacherLayout";
+import PupilDashboard from "./screens/Pupil/PupilDashboard";
+import TeacherDashboard from "./screens/Teacher/TeacherDashboard";
+import NotFound from "./screens/Errors/NotFound";
+import Login from "./screens/Login";
+import SignUp from "./screens/SignUp";
+import { ToastContainer } from "react-toastify";
+import Forbidden from "./screens/Errors/Forbidden";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route element={<HomeLayout />}>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/signin" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Route>
+        <Route element={<ProtectedLayout path="/" />}>
+          <Route element={<PupilLayout />} path="/pupil">
+            <Route element={<PupilDashboard />} path="/pupil/" />
+          </Route>
+          <Route element={<TeacherLayout />} path="/teacher">
+            <Route element={<TeacherDashboard />} path="/teacher" />
+          </Route>
+        </Route>
+        <Route path="/*" exact element={<NotFound />} />
+        <Route path="/403" exact element={<Forbidden />} />
+      </Routes>
+      <ToastContainer />
+    </>
   );
 }
 
