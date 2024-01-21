@@ -6,7 +6,7 @@ export default function TeacherLayout() {
 
   const { user } = useAuth()
 
-  if (!user.role != 'teacher') {
+  if (user.role != 'teacher') {
     return <Navigate to={'/403'} />
   }
 

@@ -1,0 +1,12 @@
+.base {
+    height: 100svh;
+    width: 100svw;
+
+    display: flex;
+    flex-direction: column;
+
+    .header {
+        height: 5svh;
+        background-color: var(--top-header-bg-color);
+    }
+}

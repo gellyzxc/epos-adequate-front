@@ -1,9 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react'
 import { useAuth } from '../providers/AuthProvider'
-import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.min.css';
 import { publicApiInstance } from '../http-common';
-
+import {presentToast} from '../utils/toast'
 export default function Login() {
   const [user, setUser] = useState({})
   const { login } = useAuth()
@@ -11,8 +9,6 @@ export default function Login() {
   const form = useRef()
 
   const handleLogin = () => {
-    console.log(form)
-
     publicApiInstance.post('/auth/login', {
       email: form.current[0].value,
       password: form.current[1].value
@@ -20,6 +16,10 @@ export default function Login() {
     .then((response) => {
       console.log(response.data);
       login(response.data)
+    })
+    .catch((error) => {
+        presentToast(error.response.data.message)
+
     })
 
   }

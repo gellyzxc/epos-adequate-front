@@ -1,0 +1,49 @@
+.base {
+    height: 100svh;
+    width: 100svw;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+        display: flex;
+        width: 100svw;
+        height: 5svh;
+        justify-content: space-between;
+        background-color: var(--header-bg-color);
+        align-items: center;
+        padding: 0 5px 0 5px;
+
+        .logo {
+            height: 4svh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .logo_image {
+                height: 100%;
+                aspect-ratio: 1/1;
+
+                cursor: pointer;
+
+            }
+
+            .logo_text {
+                font-weight: 500;
+                font-size: large;
+                margin: 0 0 0 10px;
+            }
+        }
+
+        .nav_buttons {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            height: 4svh;
+
+            & > *  {
+                cursor: pointer;
+            }
+        }
+    }
+}

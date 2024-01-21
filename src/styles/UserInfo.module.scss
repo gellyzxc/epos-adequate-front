@@ -1,0 +1,104 @@
+.base {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px 0 10px;
+    width: 100%;
+
+    .left_menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        height: 100%;
+        width: 30svw;
+
+        .logo {
+            height: 90%;
+    
+            img  {
+                height: 100% !important;
+                aspect-ratio: 1/1;
+            }
+        }   
+    
+        .banners {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    .login_info {
+        width: 20svw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        i {
+            margin-right: 10px;
+        }
+    }
+
+    .right_menu {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        height: 100%;
+        width: 30svw;
+
+        & > * {
+            margin-right: 20px;
+        }
+
+        & > *:last-child {
+            margin-right: 0;
+        }
+
+        .notifications {
+            
+        }
+
+        .messages {
+            
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            align-items: center;
+
+            .avatar_container {
+                height: 70%;
+                border-radius: 50px;
+
+                img {
+                    height: 100%;
+                }
+            }
+
+            .information {
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            .settings {
+                display: flex;
+                flex-direction: row;
+            }
+        }
+
+        .settings {
+
+        }
+
+        .logout {
+
+        }
+    }
+
+}

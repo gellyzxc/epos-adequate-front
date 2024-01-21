@@ -1,4 +1,5 @@
 import { Route, Routes, useRoutes } from "react-router-dom";
+import styles from "./styles/App.module.scss"
 import HomeLayout from "./components/Layouts/HomeLayout";
 import Homepage from "./screens/Homepage"
 import { ProtectedLayout } from "./components/Layouts/ProtectedLayout";
@@ -11,13 +12,20 @@ import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
 import { ToastContainer } from "react-toastify";
 import Forbidden from "./screens/Errors/Forbidden";
+import { useProject } from "./providers/ProjectProvider";
+import Modal from "./components/Modals/Modal";
 
 function App() {
+
+  const { theme, changeTheme } = useProject()
+
   return (
     <>
+      <div style={{ position: 'absolute', zIndex: '1234' }}><Modal /></div>
+
       <Routes>
         <Route element={<HomeLayout />}>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" index element={<Homepage />} />
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
         </Route>

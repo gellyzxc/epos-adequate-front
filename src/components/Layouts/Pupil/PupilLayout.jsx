@@ -1,16 +1,21 @@
 import React from 'react'
 import { useAuth } from '../../../providers/AuthProvider'
 import { Navigate } from 'react-router-dom'
+import styles from '../../../styles/PupilLayout.module.scss'
 
 export default function PupilLayout() {
 
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
 
   if (user.role != 'pupil') {
     return <Navigate to={'/403'} />
   }
 
   return (
-    <div>PupilLayout</div>
+    <div className={styles.base}>
+      <div className={styles.header}>
+
+      </div>
+    </div>
   )
 }
