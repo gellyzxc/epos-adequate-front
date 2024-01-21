@@ -1,0 +1,14 @@
+.container {
+    width: 100svw;
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(1px);
+
+    .content {
+        background-color: wheat;
+        height: 50%;
+        width: 70%;
+    }
+}
