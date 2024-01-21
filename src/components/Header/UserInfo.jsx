@@ -4,7 +4,7 @@ import { useAuth } from '../../providers/AuthProvider'
 import logo from '../../icons/logo.svg'
 import { useProject } from '../../providers/ProjectProvider'
 import Homepage from '../../screens/Homepage'
-import { USER, user } from '../../constants'
+import { USER } from '../../constants'
 
 export default function UserInfo({ user }) {
   const { logout } = useAuth()
