@@ -5,28 +5,34 @@ import logo from '../../icons/logo.svg'
 import { useProject } from '../../providers/ProjectProvider'
 import Homepage from '../../screens/Homepage'
 import { USER } from '../../constants'
+import Notifications from '../ModalChildren/Notifications'
+import { useNavigate } from 'react-router-dom'
+import SettingsModal from '../ModalChildren/SettingsModal'
+import SchoolCard from './UserInfo/SchoolCard'
 
 export default function UserInfo({ user }) {
   const { logout } = useAuth()
   const { toggleModal } = useProject()
+  
+  const navigate = useNavigate()
   return (
     <div className={styles.base}>
       <div className={styles.left_menu}>
-        <div className={styles.logo}>
+        <div className={styles.logo} onClick={() => navigate('/' + user.role)}>
           <img className={styles.logo_in} src={logo}></img>
         </div>
         <div className={styles.banners}></div>
       </div>
       <div className={styles.login_info}>
-        <i class="zmdi zmdi-key" onClick={() => { toggleModal(<div></div>) }}></i>
+        <i className="zmdi zmdi-key"></i>
         <p>Вы вошли в систему как {USER[user.role]}</p>
       </div>
       <div className={styles.right_menu}>
-        <div className={styles.notifications}>
-          <i class="zmdi zmdi-notifications-active"></i>
+        <div className={styles.notifications} onClick={() => {toggleModal(<Notifications />) }}>
+          <i className="zmdi zmdi-notifications-active"></i>
         </div>
-        <div className={styles.messages}>
-          <i class="zmdi zmdi-email"></i>
+        <div className={styles.messages} onClick={() => {navigate('/messages')}}>
+          <i className="zmdi zmdi-email"></i>
         </div>
         <div className={styles.profile}>
           <div className={styles.avatar_container}>
@@ -34,14 +40,14 @@ export default function UserInfo({ user }) {
           </div>
           <div className={styles.information}>
             <p className={styles.name}>{user.last_name} {user.first_name[0]}. {user.middle_name[0]}.  </p>
-            <p className={styles.current_school_info}>МАОУ "Лицей №2 г. Перми"</p>
+            <div className={styles.current_school_info}><SchoolCard type={user.role} /></div>
           </div>
         </div>
-        <div className={styles.settings}>
-          <i class="zmdi zmdi-settings"></i>
+        <div className={styles.settings} onClick={() => {toggleModal(<SettingsModal />)}}>
+          <i className="zmdi zmdi-settings"></i>
         </div>
         <div className={styles.logout} onClick={() => logout()}>
-          <i class="zmdi zmdi-square-right"></i>
+          <i className="zmdi zmdi-square-right"></i>
         </div>
       </div>
     </div>

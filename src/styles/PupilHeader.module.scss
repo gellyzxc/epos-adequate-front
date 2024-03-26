@@ -1,5 +1,13 @@
 .pupil_header {
     width: 100%;
     height: 5svh;
-    background: red;
+    background: aqua;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    > * {
+        margin-left: 20px;
+    }
+    
 }

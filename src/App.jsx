@@ -14,6 +14,12 @@ import { ToastContainer } from "react-toastify";
 import Forbidden from "./screens/Errors/Forbidden";
 import { useProject } from "./providers/ProjectProvider";
 import Modal from "./components/Modals/Modal";
+import Messages from "./screens/Messages";
+import PupilDiary from "./screens/Pupil/PupilDiary";
+import PupilHomework from "./screens/Pupil/PupilHomework";
+import PupilTimetable from "./screens/Pupil/PupilTimetable";
+import PupilMarks from "./screens/Pupil/PupilMarks";
+
 
 function App() {
 
@@ -21,7 +27,7 @@ function App() {
 
   return (
     <>
-      <div style={{ position: 'absolute', zIndex: '1234' }}><Modal /></div>
+      <div style={{ position: 'absolute', zIndex: '100' }}><Modal /></div>
 
       <Routes>
         <Route element={<HomeLayout />}>
@@ -30,12 +36,24 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
         </Route>
         <Route element={<ProtectedLayout path="/" />}>
+          
           <Route element={<PupilLayout />} path="/pupil">
             <Route element={<PupilDashboard />} path="/pupil/" />
+            <Route element={<PupilDiary />} path="/pupil/diary" />
+            <Route element={<PupilHomework />} path="/pupil/homework" />
+            <Route element={<PupilTimetable />} path="/pupil/timetable" />
+
+            <Route element={<PupilMarks />} path="/pupil/marks" />
           </Route>
+
+
           <Route element={<TeacherLayout />} path="/teacher">
             <Route element={<TeacherDashboard />} path="/teacher" />
           </Route>
+
+          <Route element={<Messages />} path="/messages" />
+            
+
         </Route>
         <Route path="/*" exact element={<NotFound />} />
         <Route path="/403" exact element={<Forbidden />} />

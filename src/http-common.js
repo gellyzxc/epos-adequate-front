@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const apiUrl = 'http://localhost/api'
+const apiUrl = 'http://localhost/api/v1'
 
 const config = {
     baseURL: apiUrl,
@@ -18,11 +18,11 @@ privateApiInstance.interceptors.response.use(
     response => response,
     error => {
         // Ошибка авторизации
-        if (error.response.status === 401) {
-            // Удаляем токен
-            localStorage.removeItem('token');
-            window.location.reload();
-        }
+        // if (error.response.status === 401) {
+        //     // Удаляем токен
+        //     localStorage.removeItem('user');
+        //     window.location.reload();
+        // }
 
         if (error.response.status === 422) {
             toast('Validation error', {

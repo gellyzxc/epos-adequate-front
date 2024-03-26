@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuth } from '../../../providers/AuthProvider'
-import { Navigate } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 import styles from '../../../styles/PupilLayout.module.scss'
 
 export default function PupilLayout() {
@@ -13,9 +13,7 @@ export default function PupilLayout() {
 
   return (
     <div className={styles.base}>
-      <div className={styles.header}>
-
-      </div>
+      <Outlet />
     </div>
   )
 }
