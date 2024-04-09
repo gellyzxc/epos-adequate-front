@@ -4,7 +4,7 @@ import { useAuth } from '../../providers/AuthProvider'
 import logo from '../../icons/logo.svg'
 import { useProject } from '../../providers/ProjectProvider'
 import Homepage from '../../screens/Homepage'
-import { USER } from '../../constants'
+import { SYSTEM_ROLES, USER } from '../../constants'
 import Notifications from '../ModalChildren/Notifications'
 import { useNavigate } from 'react-router-dom'
 import SettingsModal from '../ModalChildren/SettingsModal'
@@ -18,7 +18,7 @@ export default function UserInfo({ user }) {
   return (
     <div className={styles.base}>
       <div className={styles.left_menu}>
-        <div className={styles.logo} onClick={() => navigate('/' + user.role)}>
+        <div className={styles.logo} onClick={() => navigate('/' + SYSTEM_ROLES[user.role])}>
           <img className={styles.logo_in} src={logo}></img>
         </div>
         <div className={styles.banners}></div>

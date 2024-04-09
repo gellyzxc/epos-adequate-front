@@ -11,7 +11,7 @@
         justify-content: space-between;
         background-color: var(--header-bg-color);
         align-items: center;
-        padding: 0 5px 0 5px;
+        padding: 0 10px 0 10px;
 
         .logo {
             height: 4svh;
@@ -23,7 +23,7 @@
             .logo_image {
                 height: 100%;
                 aspect-ratio: 1/1;
-
+                margin-right: 10px;
                 cursor: pointer;
 
             }
@@ -31,7 +31,6 @@
             .logo_text {
                 font-weight: 500;
                 font-size: large;
-                margin: 0 0 0 10px;
             }
         }
 

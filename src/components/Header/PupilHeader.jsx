@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/PupilHeader.module.scss";
+import styles from "../../styles/UserHeader.module.scss";
 import {
   CDropdown,
   CDropdownItem,
@@ -19,7 +19,7 @@ export default function PupilHeader() {
 
   return (
     <div className={styles.pupil_header}>
-      <div className={styles.year_selector}>
+      <div className={styles.item}>
         <CDropdown>
           <CDropdownToggle color="">{year}</CDropdownToggle>
           <CDropdownMenu>
@@ -48,7 +48,7 @@ export default function PupilHeader() {
           </CDropdownMenu>
         </CDropdown>
       </div>
-      <div className={styles.diary}>
+      <div className={styles.item}>
         <CDropdown>
           <CDropdownToggle color="">Дневник</CDropdownToggle>
           <CDropdownMenu>
@@ -76,7 +76,7 @@ export default function PupilHeader() {
           </CDropdownMenu>
         </CDropdown>
       </div>
-      <div className={styles.marks}>
+      <div className={styles.item}>
         <CDropdown>
           <CDropdownToggle color="">Оценки</CDropdownToggle>
           <CDropdownMenu>
@@ -102,10 +102,10 @@ export default function PupilHeader() {
           </CDropdownMenu>
         </CDropdown>
       </div>
-      <div className={styles.education}>
+      <div className={styles.item}>
         <p>Образование</p>
       </div>
-      <div className={styles.other}>
+      <div className={styles.item}>
         <p>Прочее</p>
       </div>
     </div>

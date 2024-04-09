@@ -8,7 +8,7 @@ export default function PupilLayout() {
   const { user, logout } = useAuth()
 
   if (user.role != 'pupil') {
-    return <Navigate to={'/403'} />
+    return <Navigate to={'/stuff'} />
   }
 
   return (
