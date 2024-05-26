@@ -1,7 +1,8 @@
 import React from 'react'
 import { useAuth } from '../../../providers/AuthProvider'
-import { Navigate } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 import { SYSTEM_ROLES } from '../../../constants'
+import styles from '../../../styles/TeacherLayout.module.scss'
 
 export default function TeacherLayout() {
 
@@ -12,6 +13,8 @@ export default function TeacherLayout() {
   }
 
   return (
-    <div>TeacherLayout</div>
+    <div className={styles.base}>
+      <Outlet></Outlet>
+    </div>
   )
 }

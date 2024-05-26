@@ -1,0 +1,49 @@
+.base {
+    width: 23svw;
+    height: 45svh;
+    display: flex;
+
+    background-color: red;
+
+    flex-direction: column;
+
+    .selector {
+        display: flex;
+        flex-direction: row;
+
+        height: 5svh;
+
+        background-color: blue;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .list {
+        height: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+
+        .lesson {
+            display: inline-flex;
+            flex-direction: row;
+
+            .indx {
+                aspect-ratio: 1/1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                // : 1px solid black;
+                padding: 5px;
+                height: calc(40svh / 8);
+            }
+
+            .item {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}

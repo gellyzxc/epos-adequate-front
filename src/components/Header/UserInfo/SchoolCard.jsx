@@ -10,7 +10,7 @@ export default function SchoolCard({ type }) {
     const { toggleModal } = useProject()
 
   if (type == "pupil") {
-    return <p>{profile.school_class.school.name}</p>;
+    // return <p>{profile.school_class.school}</p>;
   } else if (SYSTEM_ROLES[type] == 'stuff') {
     return <p onClick={() => {toggleModal(<SchoolSelector data={profile} />)}}>{profile[0].school.name}</p>;
   }

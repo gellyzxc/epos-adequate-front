@@ -1,0 +1,11 @@
+.base {
+    width: 160px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--secondary-text-color);
+    color: var(--negative-text-color);
+    margin-top: 3px;
+}

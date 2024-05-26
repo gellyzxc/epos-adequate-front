@@ -242,7 +242,7 @@ export default function TeacherHeader() {
           <CDropdownMenu>
             <CDropdownItem
               onClick={() => {
-                navigate("/stuff/cource");
+                navigate("/stuff/events");
               }}
             >
               Мероприятия

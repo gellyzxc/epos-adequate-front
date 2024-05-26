@@ -49,3 +49,11 @@ p {
 span {
   white-space: nowrap;
 }
+
+button {
+  background-color: transparent !important;
+  outline: none !important;
+  border: none !important;
+
+  cursor: pointer;
+}

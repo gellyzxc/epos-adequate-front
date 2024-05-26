@@ -18,7 +18,7 @@ export default function HomeLayout() {
         <div className={styles.header}>
           <div className={styles.logo} onClick={() => navigate('/')}>
             <img src={logo} className={styles.logo_image}></img>
-            <p className={styles.logo_text}>ЭПОС ХУЕВ))</p>
+            <p className={styles.logo_text}>Электронный дневник</p>
           </div>
           <div className={styles.nav_buttons}>
             <div className={styles.login} onClick={() => navigate('/signin')}>

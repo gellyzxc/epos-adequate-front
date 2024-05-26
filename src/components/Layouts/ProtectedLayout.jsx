@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../../providers/AuthProvider";
 import styles from "../../styles/ProtectedLayout.module.scss";
 import UserInfo from "../Header/UserInfo";
@@ -10,22 +10,29 @@ import Loader from "../Loader";
 
 export const ProtectedLayout = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate()
   const { user, userProfile, profile } = useAuth();
   if (!user) {
     return <Navigate to={"/"}></Navigate>;
   }
 
   useEffect(() => {
-    privateApiInstance.get("/user/info").then((response) => {
-      if (response.data.role == "pupil") {
-        userProfile(response.data.pupil_profile);
-      } else if (response.data.role == "teacher") {
-        userProfile(response.data.teacher_profile);
-      }
-    })
-    .finally(() => {
-      setIsLoading(false)
-    });
+    privateApiInstance
+      .get("/user/info")
+      .then((response) => {
+        if (response.data.role == "pupil") {
+          if (!response.data.pupil_profile) {
+            navigate('/select')
+          } else {
+            userProfile(response.data.pupil_profile);
+          }
+        } else if (response.data.role == "teacher") {
+          userProfile(response.data.teacher_profile);
+        }
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   return (
